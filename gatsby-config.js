@@ -37,18 +37,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-personal-website-starter`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#81e6d9`,
-        theme_color: `#81e6d9`,
-        display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`
-      }
-    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-postcss`,
