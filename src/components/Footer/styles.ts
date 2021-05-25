@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Footer = styled.footer`
   border-top-width: 1px;
   border-color: rgba(229, 231, 235, 1);
+  background-color: rgba(243, 244, 246, 1);	
   padding-top: 1rem;
   padding-bottom: 1rem;
 `;

@@ -29,6 +29,7 @@ export const SubTitle = styled.h2`
 `;
 
 export const Logo = styled(Link)`
+  max-width: 80%;
   display: flex;
   align-items: center;
   margin-right: auto;

@@ -1,5 +1,5 @@
 ---
 category: 'blog section'
-title: 'Blog'
+title: 'Estimating Nature'
 subtitle: 'all posts'
 ---

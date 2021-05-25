@@ -86,6 +86,7 @@ const Posts: React.FC = () => {
         <Styled.Tag key={"all"}>{"all"}</Styled.Tag>
         { allTags.map((item, index) => (<Styled.Tag key={index}>{item}</Styled.Tag>)) }
       </Styled.Tags>
+      <Styled.Rule />
       <Styled.Posts>
         {posts.map((item) => {
           const {

@@ -10,6 +10,7 @@ export const TitleSection = styled.div`
 `;
 
 export const Title = styled.h1<StyledProps>`
+  margin-top: 0;
   margin-bottom: 1rem;
   width: 100%;
   text-align: ${({ center }) => center ? "center" : "left"};

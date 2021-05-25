@@ -1,6 +1,6 @@
+@import 'normalize.css';
 @import 'typography.css';
 @import 'base.css';
-@import 'normalize.css';
 @import 'prism-coy-without-shadows.css';
 
 /* CSS Custom Properties Definitions */
@@ -61,57 +61,4 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
-}
-
-/* HTML elements */
-/* *,
-:after,
-:before {
-  box-sizing: border-box;
-} */
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  color: rgba(49, 46, 129, 1);
-  /* font-family: "Computer Modern Serif", serif; */
-}
-
-/* Prose */
-
-ul { 
-  @apply list-disc;
-  margin-left: var(--spacing-8);
-  margin-right: var(--spacing-0);
-  margin-bottom: var(--spacing-2);
-}
-
-ol {
-  @apply list-decimal;
-  margin-left: var(--spacing-8);
-  margin-right: var(--spacing-0);
-  margin-bottom: var(--spacing-2);
-}
-
-blockquote {
-  color: var(--color-text-light);
-  margin-top: var(--spacing-8);
-  margin-left: var(--spacing-6);
-  margin-right: var(--spacing-12);
-  margin-bottom: var(--spacing-8);
-  padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
-  border-left: var(--spacing-1) solid var(--color-primary);
-  font-size: var(--fontSize-2);
-}
-
-table {
-  max-width: var(--maxWidth-full);
-  margin: auto;
-}
-
-table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
 }

@@ -41,6 +41,7 @@ export const Title = styled.h1`
   font-size: 1.25rem;
   line-height: 1.75rem;
   margin-bottom: 0px;
+  margin-top: 0px;
 `;
 
 export const Description = styled.p``;
@@ -72,3 +73,11 @@ export const Tag = styled.span`
   border-radius: 9999px;
   display: inline-block;
 `;
+
+export const Rule = styled.hr`
+  width: 100%;
+  height: 2px;
+  color: red;
+  margin: 0;
+  margin-bottom: 1rem;
+`
