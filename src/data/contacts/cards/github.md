@@ -1,7 +1,8 @@
 ---
 category: 'contact'
 title: 'Github'
-icon: 'code-branch'
-content: 'toby.shearman@gmail.com'
-link: 'mailto:toby.shearman@gmail.com'
+icon: 'github'
+iconLibrary: 'fab'
+content: 'tshearman'
+link: 'https://github.com/tshearman'
 ---

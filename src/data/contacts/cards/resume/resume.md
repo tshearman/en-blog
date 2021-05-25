@@ -1,8 +1,9 @@
 ---
 category: 'contact'
-title: 'Email'
-icon: 'paper-plane'
+title: 'Résumé'
+icon: 'file-pdf'
 iconLibrary: 'far'
-content: 'toby.shearman@gmail.com'
 link: 'mailto:toby.shearman@gmail.com'
+attachment: './resume.pdf'
 ---
+

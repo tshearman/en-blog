@@ -7,7 +7,7 @@ interface StyledProps {
 }
 
 export const MainNav = styled.nav<StyledProps>`
-  flex-direction: row;
+  flex-direction: column;
   max-width: 100%;
   order: 9999;
   margin-top: auto;

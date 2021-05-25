@@ -1,7 +1,7 @@
 ---
 category: 'contact'
 title: 'LinkedIn'
-icon: 'linkedin'
-content: 'toby.shearman@gmail.com'
-link: 'mailto:toby.shearman@gmail.com'
+icon: 'linkedin-in'
+iconLibrary: 'fab'
+link: 'https://www.linkedin.com/in/tobyshearman/'
 ---

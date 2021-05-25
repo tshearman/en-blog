@@ -139,8 +139,14 @@
   }
   
   button,
-  [role="button"] {
+  [role="button"]{
+    outline: none;
     cursor: pointer;
+  }
+
+  button:focus,
+  [role="button"]:focus {
+    outline: none;
   }
   
   table {

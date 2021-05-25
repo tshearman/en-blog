@@ -4,6 +4,11 @@ export interface StyledProps {
   center?: boolean;
 }
 
+export interface ClickedProps {
+  key: string;
+  clicked: boolean;
+}
+
 export const Posts = styled.div`
   width: 100%;
   display: flex;
@@ -73,6 +78,23 @@ export const Tag = styled.span`
   border-radius: 9999px;
   display: inline-block;
 `;
+
+export const Button = styled.button<ClickedProps>`
+  font-size: 0.75rem;
+  line-height: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(	79, 209, 197, 1);
+  margin: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 9999px;
+  display: inline-block;
+  opacity: ${({ clicked }) => clicked ? `1` : `0.5`};
+  filter: grayscale(${({ clicked }) => clicked ? `0` : `1`});
+`
 
 export const Rule = styled.hr`
   width: 100%;

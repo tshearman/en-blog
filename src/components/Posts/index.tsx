@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, MouseEvent } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Link from 'gatsby-link';
@@ -56,13 +56,6 @@ const Posts: React.FC = () => {
               description
               date(formatString: "MMM DD, YYYY")
               tags
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 800, maxHeight: 200) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
             }
           }
         }
@@ -70,30 +63,53 @@ const Posts: React.FC = () => {
     }
   `);
 
+  function anyTags(post: Post, tags: string[]) {
+    return tags.length > 0 && tags.some(t => post.node.frontmatter.tags.includes(t))
+  }
+
   const sectionTitle: SectionTitle = markdownRemark.frontmatter;
   const posts: Post[] = allMarkdownRemark.edges;
   const allTags = posts
-  .map(n => n.node.frontmatter.tags)
-  .filter(ts => ts != null)
-  .flatMap(ts => ts)
-  .filter((v, i, a) => a.indexOf(v) === i)
-  .sort()
+    .map(n => n.node.frontmatter.tags)
+    .filter(ts => ts != null)
+    .flatMap(ts => ts)
+    .filter((v, i, a) => a.indexOf(v) === i)
+    .sort()
+
+  const [selected, setSelected] = useState([...allTags]);
+  console.log("selected")
+  console.log(selected)
+
+  const handleClick = (value: string) => () =>{
+    console.log('Clicked')
+    console.log(value)
+    if (value === "all") {
+      setSelected(selected.length === allTags.length ? [] : allTags)
+    } else if (selected.includes(value)) {
+      setSelected( selected.filter(s => s !== value) )
+    } else {
+      setSelected( [value, ...selected] )
+    }
+    console.log(selected)
+  }
 
   return (
     <Container section>
       <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} center />
       <Styled.Tags>
-        <Styled.Tag key={"all"}>{"all"}</Styled.Tag>
-        { allTags.map((item, index) => (<Styled.Tag key={index}>{item}</Styled.Tag>)) }
+        { allTags.length > 1 && <Styled.Button key={"all"} clicked={selected.length == allTags.length} onClick={handleClick("all")}>{"all"}</Styled.Button> }
+        { allTags.map(item => (<Styled.Button key={item} clicked={selected.includes(item)} onClick={handleClick(item)}>{item}</Styled.Button>)) }
       </Styled.Tags>
       <Styled.Rule />
       <Styled.Posts>
-        {posts.map((item) => {
-          const {
-            id,
-            fields: { slug },
-            frontmatter: { title, cover, description, date, tags }
-          } = item.node;
+        {posts
+          .filter(p => anyTags(p, selected))
+          .map((item) => {
+            const {
+              id,
+              fields: { slug },
+              frontmatter: { title, cover, description, date, tags }
+            } = item.node;
           return (
             <Styled.Post key={id}>
               <Link to={slug}>

@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import InfoBlock from 'components/ui/InfoBlock';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
-import { IconProps } from 'components/ui/Icon';
 
 import { SectionTitle } from 'helpers/definitions';
 
@@ -15,9 +14,13 @@ interface Contact {
     id: string;
     frontmatter: {
       title: string;
-      content: string;
-      icon: IconProps;
+      content?: string;
+      icon: string;
+      iconLibrary?: string;
       link: string;
+      attachment?: {
+        publicURL: string
+      }
     };
   };
 }
@@ -37,9 +40,13 @@ const ContactInfo: React.FC = () => {
             id
             frontmatter {
               title
-              icon
-              link
               content
+              icon
+              iconLibrary
+              link
+              attachment {
+                publicURL
+              }
             }
           }
         }
@@ -56,13 +63,13 @@ const ContactInfo: React.FC = () => {
       {contacts.map((item) => {
         const {
           id,
-          frontmatter: { title, icon, link }
+          frontmatter: { title, content, icon, iconLibrary, link, attachment }
         } = item.node;
-
+        const l = attachment?.publicURL || link
         return (
             <Styled.ContactInfoItem key={id}>
-              <a href={link}>
-              <InfoBlock icon={icon} title={title} center />
+              <a href={l}>
+              <InfoBlock icon={icon} iconLibrary={iconLibrary} title={title} content={content} center />
               </a>
             </Styled.ContactInfoItem>
         );

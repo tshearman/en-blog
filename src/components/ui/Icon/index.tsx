@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFile, faFilePdf, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import {
   faLaptopCode,
   faDrawPolygon,
@@ -9,16 +10,20 @@ import {
   faBullhorn,
   faMapMarkerAlt,
   faPhone,
-  faPaperPlane,
-  faCodeBranch
+  faCodeBranch,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 /* add any additional icon to the library */
-library.add(fab, faLaptopCode, faDrawPolygon, faEdit, faEdit, faBullhorn, faMapMarkerAlt, faPhone, faPaperPlane, faCodeBranch, faLinkedinIn, faGithub);
+library.add(faFile, faFilePdf, faLaptopCode, faDrawPolygon, faEdit, faEdit, faBullhorn, faMapMarkerAlt, faPhone, faPaperPlane, faCodeBranch, faLinkedinIn, faGithub);
 
-export type IconProps = FontAwesomeIconProps['icon'];
+interface Props {
+  name: string;
+  library: string;
+}
 
-const Icon: React.FC<FontAwesomeIconProps> = ({ ...props }) => <FontAwesomeIcon {...props} />;
+const Icon: React.FC<Props> = ({name, library}) =>
+  <FontAwesomeIcon icon={[library as IconPrefix, name as IconName]} />;
 
 export default Icon;

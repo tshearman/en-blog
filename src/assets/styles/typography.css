@@ -1,35 +1,18 @@
 @font-face {
     font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+    src: url('../fonts/cmunss.otf');
 };
 @font-face {
     font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
-    font-weight: bold;
-};
-@font-face {
-    font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
-    font-style: italic, oblique;
-};
-@font-face {
-    font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
-    font-weight: bold;
-    font-style: italic, oblique;
-};
-
-@font-face {
-    font-family: "Computer Modern Serif";
-    src: url('../fonts/cmunrm.ttf');
-};
-@font-face {
-    font-family: "Computer Modern Serif";
-    src: url('../fonts/cmunbx.ttf');
+    src: url('../fonts/cmunsx.otf');
     font-weight: bold;
 };
 @font-face {
     font-family: "Computer Modern Serif";
-    src: url('../fonts/cmunrm.ttf');
-    font-style: italic, oblique;
+    src: url('../fonts/cmunrm.otf');
+};
+@font-face {
+    font-family: "Computer Modern Serif";
+    src: url('../fonts/cmunbx.otf');
+    font-weight: bold;
 };

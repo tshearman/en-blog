@@ -26,9 +26,6 @@ export const SubTitle = styled.h2`
   text-align: left;
   margin-bottom: 0px;
   color: rgba(79, 70, 229, 1);
-  @media (max-width: 700px) {
-    max-width: 375px;
- }
 `;
 
 export const Logo = styled(Link)`

@@ -17,6 +17,11 @@ export const InfoBlock = styled.div<StyledProps>`
   border-radius: 0.5rem;
   border-color: rgba(209, 213, 219, 1);
   ${({ center }) => center && `align-items: center;`};
+  transition: all .2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0.25rem rgba(33,33,33,.2); 
+  }
 `;
 
 export const Icon = styled.span`
@@ -39,6 +44,7 @@ export const Wrapper = styled.div<StyledProps>`
 export const Title = styled.h3`
   font-weight: 600;
   font-size: 1rem;
+  margin: 0;
   line-height: 1.5rem;
 `;
 
