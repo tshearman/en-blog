@@ -7,12 +7,13 @@ interface StyledProps {
 }
 
 export const MainNav = styled.nav<StyledProps>`
-  flex-direction: column;
-  width: 100%;
+  flex-direction: row;
+  max-width: 100%;
   order: 9999;
-  margin-top: 1rem;
+  margin-top: auto;
   margin-bottom: 1rem;
   display: none;
+  font-weight: 200;
   @media (min-width: 640px) {
     display: flex;
     flex-direction: row;
@@ -31,6 +32,9 @@ export const MainNavItem = motion.custom(styled(Link)`
   margin-left: 0px;
   margin-top: 0.75rem;
   color: rgba(49, 46, 129, 1);
+  &:first-child {
+    margin-left: 0;
+  }
 
   @media (min-width: 640px) {
     margin-top: 0px;

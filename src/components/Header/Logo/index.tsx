@@ -21,7 +21,7 @@ const Logo: React.FC = () => {
     <Styled.Logo to="/">
         <Styled.TitleSection>
           {meta.description && <Styled.SubTitle>{meta.description}</Styled.SubTitle>}
-        <Styled.Title>{meta.title}</Styled.Title>
+          <Styled.Title>{meta.title}</Styled.Title>
         </Styled.TitleSection>
     </Styled.Logo>
   );

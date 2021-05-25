@@ -33,10 +33,3 @@
     src: url('../fonts/cmunrm.ttf');
     font-style: italic, oblique;
 };
-@font-face {
-    font-family: "Computer Modern Serif";
-    src: url('../fonts/cmunbi.ttf');
-    font-weight: bold;
-    font-style: italic, oblique;
-};
-
