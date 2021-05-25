@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
 import { Container } from 'components/ui/Container/styles';
 
 export const Header = styled.header`
-  ${tw`bg-gray-100 border-b border-gray-200 -mb-px`};
+  background-color: rgba(243, 244, 246, 1);	
+  border-bottom-width: 1px;
+  border-color: rgba(229, 231, 235, 1);	
+  margin-bottom: -1px;
 `;
 
 export const Wrapper = styled(Container)`
-  ${tw`items-center`};
+  align-items: center;
 `;

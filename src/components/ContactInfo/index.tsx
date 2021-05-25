@@ -17,11 +17,12 @@ interface Contact {
       title: string;
       content: string;
       icon: IconProps;
+      link: string;
     };
   };
 }
 
-const ConctactInfo: React.FC = () => {
+const ContactInfo: React.FC = () => {
   const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: { category: { eq: "contact section" } }) {
@@ -37,6 +38,7 @@ const ConctactInfo: React.FC = () => {
             frontmatter {
               title
               icon
+              link
               content
             }
           }
@@ -54,17 +56,19 @@ const ConctactInfo: React.FC = () => {
       {contacts.map((item) => {
         const {
           id,
-          frontmatter: { title, icon, content }
+          frontmatter: { title, icon, link }
         } = item.node;
 
         return (
-          <Styled.ContactInfoItem key={id}>
-            <InfoBlock icon={icon} title={title} content={content} center />
-          </Styled.ContactInfoItem>
+            <Styled.ContactInfoItem key={id}>
+              <a href={link}>
+              <InfoBlock icon={icon} title={title} center />
+              </a>
+            </Styled.ContactInfoItem>
         );
       })}
     </Container>
   );
 };
 
-export default ConctactInfo;
+export default ContactInfo;

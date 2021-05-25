@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Estimating Nature`,
-    description: `A small blog for continuing to learn through writing about mathematics and computing.`,
+    description: `Continued learning through writing about mathematics and computing`,
     author: `Toby Shearman`
   },
   plugins: [
@@ -28,10 +28,14 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 768,
               linkImagesToOriginal: false
             }
-          }
+          },
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
         ]
       }
     },
@@ -40,13 +44,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-tailwindcss`,
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        tailwind: true,
-        purgeOnly: [`src/assets/styles/global.css`]
-      }
-    }
+    `gatsby-plugin-tailwindcss`
   ]
 };

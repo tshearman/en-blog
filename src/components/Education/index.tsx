@@ -69,7 +69,7 @@ const Education: React.FC = () => {
             key={id}
             title={university}
             subtitle={degree}
-            content={<FormatHtml content={html} />}
+            content={html}
             startDate={startDate}
             endDate={endDate}
           />

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
 import { motion } from 'framer-motion';
 
 export interface StyledProps {
@@ -9,9 +8,14 @@ export interface StyledProps {
 
 export const Button = motion.custom(styled.button<StyledProps>`
   outline: none !important;
-  ${tw`py-2 px-8 rounded-full border border-teal-300 text-indigo-900`};
-
-  ${({ primary }) => (primary ? tw`bg-teal-300` : tw`text-indigo-600`)};
-
-  ${({ block }) => block && tw`w-full`};
+  border-width: 1px;
+  border-radius: 9999px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-color: rgba(129, 230, 217, 1);
+  color: rgba(49, 46, 129, 1);	
+  color: ${({ primary }) => (primary ? `rgba(129, 230, 217, 1)` : `rgba(79, 70, 229, 1)`)};
+  ${({ block }) => block && `width: 100%;`};
 `);

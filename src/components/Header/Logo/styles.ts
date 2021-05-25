@@ -1,19 +1,41 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
 import { Link } from 'gatsby';
 
+export const TitleSection = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Title = styled.h1`
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  text-align: left;
+`;
+
+export const SubTitle = styled.h2`
+  font-size: 0.75rem;
+  line-height: 1rem;
+  width: 100%;
+  margin-top: 0px;
+  text-align: left;
+  margin-bottom: 0px;
+  color: rgba(79, 70, 229, 1);	
+`;
+
 export const Logo = styled(Link)`
-  ${tw`flex items-center mr-auto text-indigo-900 hover:text-indigo-900`};
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  color: rgba(49, 46, 129, 1);
 `;
 
 export const Text = styled.h1`
-  ${tw`text-lg`};
-`;
-
-export const Image = styled.figure`
-  ${tw`w-16 h-16 mr-3 border border-teal-400 rounded-full`};
-
-  img {
-    ${tw`border-4 border-white rounded-full`};
-  }
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 `;

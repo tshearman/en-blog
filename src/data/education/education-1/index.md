@@ -1,9 +1,7 @@
 ---
 category: 'education'
-university: 'Columbia University'
-degree: 'Bachelor'
-startDate: 'Oct 2005'
-endDate: 'Jul 2008'
+university: 'Virginia Tech'
+degree: 'B.Sc. Mathematics, B.Sc. Chemical Engineering'
+startDate: 'Aug 2003'
+endDate: 'May 2009'
 ---
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.

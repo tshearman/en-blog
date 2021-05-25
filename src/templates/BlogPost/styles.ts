@@ -1,14 +1,21 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
 
 export const Title = styled.h3`
-  ${tw`font-semibold mb-4`};
+  font-weight: 600;
+  margin-bottom: 1rem;
 `;
 
 export const Image = styled.figure`
-  ${tw`w-full rounded-lg overflow-hidden mt-4 mb-10`};
+  width: 100%;
+  overflow: hidden;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2.5rem;
 `;
 
 export const Links = styled.div`
-  ${tw`w-full flex justify-between mt-10`};
+  width: 100%;
+  display: flex;
+  margin-top: 2.5rem;
+  justify-content: space-between;
 `;

@@ -1,4 +1,5 @@
 import React from 'react';
+import FormatHtml from 'components/utils/FormatHtml';
 
 import * as Styled from './styles';
 
@@ -20,7 +21,9 @@ const Timeline: React.FC<Props> = ({ title, subtitle, content, startDate, endDat
       <Styled.Title>{title}</Styled.Title>
       <Styled.Subtitle>{subtitle}</Styled.Subtitle>
     </Styled.Details>
-    <Styled.Content>{content}</Styled.Content>
+    <Styled.Content>
+      <FormatHtml content={content} />
+    </Styled.Content>
   </Styled.Timeline>
 );
 

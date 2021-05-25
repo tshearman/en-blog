@@ -1,27 +1,47 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
 
 export interface StyledProps {
   center?: boolean;
 }
 
 export const InfoBlock = styled.div<StyledProps>`
-  ${tw`flex flex-col my-4 mx-3 p-4 bg-white rounded-lg border border-gray-300`};
-  ${({ center }) => center && tw`items-center`};
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  border-width: 1px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 0.5rem;
+  border-color: rgba(209, 213, 219, 1);
+  ${({ center }) => center && `align-items: center;`};
 `;
 
 export const Icon = styled.span`
-  ${tw`flex items-center justify-center w-10 h-10 text-indigo-500 border border-teal-400 rounded-full mb-2`};
+  border-width: 1px;
+  display: flex;
+  border-color: rgba(79, 209, 197, 1);
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  color: rgba(99, 102, 241, 1);
+  border-radius: 9999px;
 `;
 
 export const Wrapper = styled.div<StyledProps>`
-  ${({ center }) => center && tw`text-center`};
+  ${({ center }) => center && `text-align: center;`};
 `;
 
 export const Title = styled.h3`
-  ${tw`text-md mt-1 font-semibold`};
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
 `;
 
 export const Content = styled.p`
-  ${tw`mt-1`};
+  margin-top: 0.25rem;
 `;

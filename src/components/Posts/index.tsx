@@ -22,7 +22,7 @@ interface Post {
       description: string;
       date: string;
       tags: string[];
-      cover: {
+      cover?: {
         childImageSharp: {
           fluid: ImageSharpFluid;
         };
@@ -58,7 +58,7 @@ const Posts: React.FC = () => {
               tags
               cover {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
+                  fluid(maxWidth: 800, maxHeight: 200) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -72,10 +72,20 @@ const Posts: React.FC = () => {
 
   const sectionTitle: SectionTitle = markdownRemark.frontmatter;
   const posts: Post[] = allMarkdownRemark.edges;
+  const allTags = posts
+  .map(n => n.node.frontmatter.tags)
+  .filter(ts => ts != null)
+  .flatMap(ts => ts)
+  .filter((v, i, a) => a.indexOf(v) === i)
+  .sort()
 
   return (
     <Container section>
       <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} center />
+      <Styled.Tags>
+        <Styled.Tag key={"all"}>{"all"}</Styled.Tag>
+        { allTags.map((item, index) => (<Styled.Tag key={index}>{item}</Styled.Tag>)) }
+      </Styled.Tags>
       <Styled.Posts>
         {posts.map((item) => {
           const {
@@ -83,25 +93,26 @@ const Posts: React.FC = () => {
             fields: { slug },
             frontmatter: { title, cover, description, date, tags }
           } = item.node;
-
           return (
             <Styled.Post key={id}>
               <Link to={slug}>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1 }}>
+                <motion.div whileHover={{ scale: 1 }} whileTap={{ scale: 1 }}>
                   <Styled.Card>
-                    <Styled.Image>
-                      <Img fluid={cover.childImageSharp.fluid} alt={title} />
-                    </Styled.Image>
+                    { cover &&
+                      <Styled.Image>
+                        <Img fluid={cover.childImageSharp.fluid} alt={title} />
+                      </Styled.Image>
+                    }
                     <Styled.Content>
                       <Styled.Date>{date}</Styled.Date>
                       <Styled.Title>{title}</Styled.Title>
                       <Styled.Description>{description}</Styled.Description>
-                    </Styled.Content>
                     <Styled.Tags>
                       {tags.map((item) => (
                         <Styled.Tag key={item}>{item}</Styled.Tag>
                       ))}
                     </Styled.Tags>
+                    </Styled.Content>
                   </Styled.Card>
                 </motion.div>
               </Link>

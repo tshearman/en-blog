@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Timeline from 'components/ui/Timeline';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
-import FormatHtml from 'components/utils/FormatHtml';
 
 import { SectionTitle } from 'helpers/definitions';
 
@@ -64,12 +63,14 @@ const Experience: React.FC = () => {
           frontmatter: { company, position, startDate, endDate }
         } = item.node;
 
+        console.log(html)
+
         return (
           <Timeline
             key={id}
             title={company}
             subtitle={position}
-            content={<FormatHtml content={html} />}
+            content={html}
             startDate={startDate}
             endDate={endDate}
           />

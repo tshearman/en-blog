@@ -1,40 +1,74 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+
+export interface StyledProps {
+  center?: boolean;
+}
 
 export const Posts = styled.div`
-  ${tw`w-full flex flex-wrap`};
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Post = styled.div`
-  ${tw`w-full sm:w-1/2 p-3`};
+  width: 100%;
+  padding: 0.75rem;
+  @media (min-width: 640px) { 
+    width: 100%
+  };
 `;
 
 export const Card = styled.div`
-  ${tw`w-full h-full rounded-lg flex flex-col overflow-hidden border border-gray-300`};
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Content = styled.div`
-  ${tw`p-4 text-indigo-900`};
+  padding: 1rem;
+  color: rgba(49, 46, 129, 1);
 `;
 
 export const Image = styled.figure`
-  ${tw`w-full`};
+  width: 100%;
 `;
 
-export const Title = styled.h3`
-  ${tw`font-semibold mb-4`};
+export const Title = styled.h1`
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0px;
 `;
 
 export const Description = styled.p``;
 
-export const Date = styled.h3`
-  ${tw`text-xs text-indigo-500`};
+export const Date = styled.h2`
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 0px;
+  color: rgba(99, 102, 241, 1);
 `;
 
-export const Tags = styled.div`
-  ${tw`p-4 pt-2 mt-auto`}
+export const Tags = styled.div<StyledProps>`
+  padding: 1rem;
+  padding-top: 0.5rem;
+  ${({ center }) => center && `align-items: center;`};
 `;
 
 export const Tag = styled.span`
-  ${tw`text-xs text-indigo-900 border border-teal-400 rounded-full px-2 py-1 mr-2`}
+  font-size: 0.75rem;
+  line-height: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(	79, 209, 197, 1);
+  margin: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 9999px;
+  display: inline-block;
 `;

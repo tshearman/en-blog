@@ -1,18 +1,34 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
 
 export const Footer = styled.footer`
-  ${tw`border-t border-gray-200 py-4`};
+  border-top-width: 1px;
+  border-color: rgba(229, 231, 235, 1);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 `;
 
 export const Links = styled.div`
-  ${tw`flex items-center justify-center w-full`};
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   a {
-    ${tw`text-indigo-900 hover:text-indigo-600 mx-2`};
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: rgba(49, 46, 129, 1);
+    &:hover {
+      color: rgba(79, 70, 229, 1);
+    }
   }
 `;
 
 export const Link = styled.a`
-  ${tw`text-indigo-900 hover:text-indigo-600 mx-2`};
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: rgba(49, 46, 129, 1);
+  color: rgba(49, 46, 129, 1);
+  &:hover {
+    color: rgba(79, 70, 229, 1);
+  }
 `;
