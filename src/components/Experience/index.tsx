@@ -63,8 +63,6 @@ const Experience: React.FC = () => {
           frontmatter: { company, position, startDate, endDate }
         } = item.node;
 
-        console.log(html)
-
         return (
           <Timeline
             key={id}

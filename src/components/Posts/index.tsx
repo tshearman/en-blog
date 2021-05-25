@@ -75,14 +75,8 @@ const Posts: React.FC = () => {
     .flatMap(ts => ts)
     .filter((v, i, a) => a.indexOf(v) === i)
     .sort()
-
   const [selected, setSelected] = useState([...allTags]);
-  console.log("selected")
-  console.log(selected)
-
   const handleClick = (value: string) => () =>{
-    console.log('Clicked')
-    console.log(value)
     if (value === "all") {
       setSelected(selected.length === allTags.length ? [] : allTags)
     } else if (selected.includes(value)) {
@@ -90,7 +84,6 @@ const Posts: React.FC = () => {
     } else {
       setSelected( [value, ...selected] )
     }
-    console.log(selected)
   }
 
   return (

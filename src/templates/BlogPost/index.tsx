@@ -35,7 +35,6 @@ interface Props {
 const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const { previous, next } = pageContext;
-  console.log(post.html)
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
