@@ -3,6 +3,10 @@
     * opt-out.
     */
 
+body {
+    color: rgba(49, 46, 129, 1);
+}
+
 a {
     color: rgba(79, 70, 229, 1);
     text-decoration: inherit;

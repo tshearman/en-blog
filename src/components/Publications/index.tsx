@@ -70,7 +70,6 @@ const Publications: React.FC = () => {
         const date = (month ? (month + ' ') : '') + year
         return (
           <Timeline
-            key={id}
             startDate={date}
             content={staticElement}
           />
