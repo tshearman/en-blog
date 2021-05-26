@@ -67,11 +67,11 @@ const ContactInfo: React.FC = () => {
         } = item.node;
         const l = attachment?.publicURL || link
         return (
-            <Styled.ContactInfoItem key={id}>
-              <a href={l}>
+          <Styled.ContactInfoItem key={id}>
+            <a href={l}>
               <InfoBlock icon={icon} iconLibrary={iconLibrary} title={title} content={content} center />
-              </a>
-            </Styled.ContactInfoItem>
+            </a>
+          </Styled.ContactInfoItem>
         );
       })}
     </Container>

@@ -76,13 +76,13 @@ const Posts: React.FC = () => {
     .filter((v, i, a) => a.indexOf(v) === i)
     .sort()
   const [selected, setSelected] = useState([...allTags]);
-  const handleClick = (value: string) => () =>{
+  const handleClick = (value: string) => () => {
     if (value === "all") {
       setSelected(selected.length === allTags.length ? [] : allTags)
     } else if (selected.includes(value)) {
-      setSelected( selected.filter(s => s !== value) )
+      setSelected(selected.filter(s => s !== value))
     } else {
-      setSelected( [value, ...selected] )
+      setSelected([value, ...selected])
     }
   }
 
@@ -90,8 +90,8 @@ const Posts: React.FC = () => {
     <Container section>
       <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} center />
       <Styled.Tags>
-        { allTags.length > 1 && <Styled.Button key={"all"} clicked={selected.length == allTags.length} onClick={handleClick("all")}>{"all"}</Styled.Button> }
-        { allTags.map(item => (<Styled.Button key={item} clicked={selected.includes(item)} onClick={handleClick(item)}>{item}</Styled.Button>)) }
+        {allTags.length > 1 && <Styled.Button key={"all"} clicked={selected.length == allTags.length} onClick={handleClick("all")}>{"all"}</Styled.Button>}
+        {allTags.map(item => (<Styled.Button key={item} clicked={selected.includes(item)} onClick={handleClick(item)}>{item}</Styled.Button>))}
       </Styled.Tags>
       <Styled.Rule />
       <Styled.Posts>
@@ -103,32 +103,32 @@ const Posts: React.FC = () => {
               fields: { slug },
               frontmatter: { title, cover, description, date, tags }
             } = item.node;
-          return (
-            <Styled.Post key={id}>
-              <Link to={slug}>
-                <motion.div whileHover={{ scale: 1 }} whileTap={{ scale: 1 }}>
-                  <Styled.Card>
-                    { cover &&
-                      <Styled.Image>
-                        <Img fluid={cover.childImageSharp.fluid} alt={title} />
-                      </Styled.Image>
-                    }
-                    <Styled.Content>
-                      <Styled.Date>{date}</Styled.Date>
-                      <Styled.Title>{title}</Styled.Title>
-                      <Styled.Description>{description}</Styled.Description>
-                    <Styled.Tags>
-                      {tags.map((item) => (
-                        <Styled.Tag key={item}>{item}</Styled.Tag>
-                      ))}
-                    </Styled.Tags>
-                    </Styled.Content>
-                  </Styled.Card>
-                </motion.div>
-              </Link>
-            </Styled.Post>
-          );
-        })}
+            return (
+              <Styled.Post key={id}>
+                <Link to={slug}>
+                  <motion.div whileHover={{ scale: 1 }} whileTap={{ scale: 1 }}>
+                    <Styled.Card>
+                      {cover &&
+                        <Styled.Image>
+                          <Img fluid={cover.childImageSharp.fluid} alt={title} />
+                        </Styled.Image>
+                      }
+                      <Styled.Content>
+                        <Styled.Date>{date}</Styled.Date>
+                        <Styled.Title>{title}</Styled.Title>
+                        <Styled.Description>{description}</Styled.Description>
+                        <Styled.Tags>
+                          {tags.map((item) => (
+                            <Styled.Tag key={item}>{item}</Styled.Tag>
+                          ))}
+                        </Styled.Tags>
+                      </Styled.Content>
+                    </Styled.Card>
+                  </motion.div>
+                </Link>
+              </Styled.Post>
+            );
+          })}
       </Styled.Posts>
     </Container>
   );

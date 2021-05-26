@@ -23,7 +23,7 @@ interface Props {
   library: string;
 }
 
-const Icon: React.FC<Props> = ({name, library}) =>
+const Icon: React.FC<Props> = ({ name, library }) =>
   <FontAwesomeIcon icon={[library as IconPrefix, name as IconName]} />;
 
 export default Icon;

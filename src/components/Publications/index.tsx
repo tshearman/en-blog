@@ -65,7 +65,7 @@ const Publications: React.FC = () => {
           frontmatter: { authors, title, journal, month, year, link }
         } = item.node;
 
-        const pub = <Publication authors={authors} title={title} journal={journal} year={year} link={link}/>
+        const pub = <Publication authors={authors} title={title} journal={journal} year={year} link={link} />
         const staticElement = renderToStaticMarkup(pub)
         const date = (month ? (month + ' ') : '') + year
         return (

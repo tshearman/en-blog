@@ -4,13 +4,13 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 type Meta =
   | {
-      name: string;
-      content: any;
-    }
+    name: string;
+    content: any;
+  }
   | {
-      property: string;
-      content: any;
-    };
+    property: string;
+    content: any;
+  };
 
 interface Props {
   description?: string;

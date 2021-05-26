@@ -15,7 +15,7 @@ interface Props {
 const Banner: React.FC<Props> = ({ title, subtitle, content }) => (
   <Styled.Banner>
     <Container section>
-      <TitleSection title={title} subtitle={subtitle} center/>
+      <TitleSection title={title} subtitle={subtitle} center />
       <FormatHtml content={content} />
     </Container>
   </Styled.Banner>

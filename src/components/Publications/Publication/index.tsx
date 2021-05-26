@@ -3,15 +3,15 @@ import * as Styled from './styles';
 import { Content as StyledContent } from '../../ui/Timeline/styles'
 
 interface Props {
-    authors: string[];
-    title: string;
-    journal: string;
-    year: string;
-    link: string;
+  authors: string[];
+  title: string;
+  journal: string;
+  year: string;
+  link: string;
 }
 
 const Publication: React.FC<Props> = ({ authors, title, journal, year, link }) => {
-  return(
+  return (
     <a href={link}>
       <div>
         <Styled.Authors>{authors.join(', ')}</Styled.Authors>

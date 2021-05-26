@@ -19,10 +19,10 @@ const Logo: React.FC = () => {
 
   return (
     <Styled.Logo to="/">
-        <Styled.TitleSection>
-          {meta.description && <Styled.SubTitle>{meta.description}</Styled.SubTitle>}
-          <Styled.Title>{meta.title}</Styled.Title>
-        </Styled.TitleSection>
+      <Styled.TitleSection>
+        {meta.description && <Styled.SubTitle>{meta.description}</Styled.SubTitle>}
+        <Styled.Title>{meta.title}</Styled.Title>
+      </Styled.TitleSection>
     </Styled.Logo>
   );
 };

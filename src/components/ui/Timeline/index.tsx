@@ -16,7 +16,7 @@ const Timeline: React.FC<Props> = ({ title, subtitle, content, startDate, endDat
     <Styled.Point />
     <Styled.Details>
       <Styled.Date>
-        {startDate} { endDate && `- ${endDate}`}
+        {startDate} {endDate && `- ${endDate}`}
       </Styled.Date>
       {title && <Styled.Title>{title}</Styled.Title>}
       {subtitle && <Styled.Subtitle>{subtitle}</Styled.Subtitle>}

@@ -8,13 +8,13 @@ interface Props extends Styled.StyledProps {
   title: string;
   content?: React.ReactNode;
   icon: string;
-  iconLibrary?: string; 
+  iconLibrary?: string;
 }
 
 const InfoBlock: React.FC<Props> = ({ icon, iconLibrary, title, content, center }) => (
   <Styled.InfoBlock center={center}>
     <Styled.Icon>
-      <Icon name={icon} library={iconLibrary ? iconLibrary : "fas"}/>
+      <Icon name={icon} library={iconLibrary ? iconLibrary : "fas"} />
     </Styled.Icon>
     <Styled.Wrapper center={center}>
       <Styled.Title>{title}</Styled.Title>
