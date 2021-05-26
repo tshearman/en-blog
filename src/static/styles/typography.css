@@ -3,24 +3,19 @@
     src: url('../fonts/cmunss.otf');
 }
 
-;
 @font-face {
     font-family: "Computer Modern";
     src: url('../fonts/cmunsx.otf');
     font-weight: bold;
 }
 
-;
 @font-face {
     font-family: "Computer Modern Serif";
     src: url('../fonts/cmunrm.otf');
 }
 
-;
 @font-face {
     font-family: "Computer Modern Serif";
     src: url('../fonts/cmunbx.otf');
     font-weight: bold;
 }
-
-;

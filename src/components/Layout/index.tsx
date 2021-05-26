@@ -5,8 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
-import 'assets/styles/global.css';
-import GlobalStyles from 'assets/styles/globalStyles';
+import 'static/styles/global.css';
 import * as Styled from './styles';
 
 interface Props {
@@ -26,7 +25,6 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <>
-      <GlobalStyles />
       <AnimatePresence exitBeforeEnter>
         <Styled.Layout>
           <Header siteTitle={data.site.siteMetadata.title} />

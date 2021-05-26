@@ -6,4 +6,3 @@ iconLibrary: 'far'
 link: 'mailto:toby.shearman@gmail.com'
 attachment: './resume.pdf'
 ---
-

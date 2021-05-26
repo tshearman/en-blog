@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
   siteMetadata: {
     title: `Estimating Nature`,
@@ -11,7 +12,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets/images`
+        path: `${__dirname}/src/static/images`
       }
     },
     {
@@ -34,16 +35,14 @@ module.exports = {
           `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-prismjs`,
-            options: {},
-          },
+            options: {}
+          }
         ]
       }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-tailwindcss`
+    `gatsby-plugin-styled-components`
   ]
 };
