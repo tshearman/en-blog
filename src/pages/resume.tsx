@@ -5,6 +5,7 @@ import SEO from 'components/SEO';
 import HeroBanner from 'components/HeroBanner';
 import Experience from 'components/Experience';
 import Education from 'components/Education';
+import Publications from 'components/Publications';
 
 const ResumePage: React.FC = () => (
   <Layout>
@@ -13,6 +14,8 @@ const ResumePage: React.FC = () => (
     <Experience />
     <hr />
     <Education />
+    <hr />
+    <Publications />
   </Layout>
 );
 

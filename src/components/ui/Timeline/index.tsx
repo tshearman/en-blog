@@ -4,11 +4,11 @@ import FormatHtml from 'components/utils/FormatHtml';
 import * as Styled from './styles';
 
 interface Props {
-  title: string;
-  subtitle: string;
-  content: React.ReactNode;
+  title?: string;
+  subtitle?: string;
+  content?: React.ReactNode;
   startDate: string;
-  endDate: string;
+  endDate?: string;
 }
 
 const Timeline: React.FC<Props> = ({ title, subtitle, content, startDate, endDate }) => (
@@ -16,14 +16,12 @@ const Timeline: React.FC<Props> = ({ title, subtitle, content, startDate, endDat
     <Styled.Point />
     <Styled.Details>
       <Styled.Date>
-        {startDate} - {endDate}
+        {startDate} { endDate && `- ${endDate}`}
       </Styled.Date>
-      <Styled.Title>{title}</Styled.Title>
-      <Styled.Subtitle>{subtitle}</Styled.Subtitle>
+      {title && <Styled.Title>{title}</Styled.Title>}
+      {subtitle && <Styled.Subtitle>{subtitle}</Styled.Subtitle>}
     </Styled.Details>
-    <Styled.Content>
-      <FormatHtml content={content} />
-    </Styled.Content>
+    {content && <Styled.Content><FormatHtml content={content} /></Styled.Content>}
   </Styled.Timeline>
 );
 
