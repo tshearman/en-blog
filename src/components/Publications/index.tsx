@@ -16,6 +16,7 @@ interface PublicationData {
       authors: string[];
       title: string;
       journal: string;
+      month?: string;
       year: string;
       link: string;
     };

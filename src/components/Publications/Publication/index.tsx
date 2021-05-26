@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Styled from './styles';
+import { Content as StyledContent } from '../../ui/Timeline/styles'
 
 interface Props {
     authors: string[];
