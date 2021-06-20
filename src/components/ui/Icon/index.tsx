@@ -11,19 +11,36 @@ import {
   faMapMarkerAlt,
   faPhone,
   faCodeBranch,
+  faUnlockAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 /* add any additional icon to the library */
-library.add(faFile, faFilePdf, faLaptopCode, faDrawPolygon, faEdit, faEdit, faBullhorn, faMapMarkerAlt, faPhone, faPaperPlane, faCodeBranch, faLinkedinIn, faGithub);
+library.add(
+  faFile,
+  faFilePdf,
+  faLaptopCode,
+  faDrawPolygon,
+  faEdit,
+  faEdit,
+  faBullhorn,
+  faMapMarkerAlt,
+  faPhone,
+  faPaperPlane,
+  faCodeBranch,
+  faUnlockAlt,
+  faLinkedinIn,
+  faGithub
+);
 
 interface Props {
   name: string;
   library: string;
 }
 
-const Icon: React.FC<Props> = ({ name, library }) =>
-  <FontAwesomeIcon icon={[library as IconPrefix, name as IconName]} />;
+const Icon: React.FC<Props> = ({ name, library }) => (
+  <FontAwesomeIcon icon={[library as IconPrefix, name as IconName]} />
+);
 
 export default Icon;
