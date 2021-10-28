@@ -2,15 +2,21 @@ import React from 'react';
 
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
-import Posts from 'components/Posts';
+import HeroBanner from 'components/HeroBanner';
+import Experience from 'components/Experience';
+import Education from 'components/Education';
+import Publications from 'components/Publications';
 
-const IndexPage: React.FC = () => {
-  return (
-    <Layout>
-      <SEO title="Blog" />
-      <Posts />
-    </Layout>
-  );
-};
+const ResumePage: React.FC = () => (
+  <Layout>
+    <SEO title="Resume" />
+    <HeroBanner />
+    <Experience />
+    <hr />
+    <Education />
+    <hr />
+    <Publications />
+  </Layout>
+);
 
-export default IndexPage;
+export default ResumePage;
