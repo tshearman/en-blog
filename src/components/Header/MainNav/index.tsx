@@ -15,11 +15,11 @@ const mainNavItems: MainNavItem[] = [
   {
     title: 'Contact',
     slug: '/contact/'
-  },
-  {
-    title: 'Blog',
-    slug: '/blog/'
   }
+  // {
+  //   title: 'Blog',
+  //   slug: '/blog/'
+  // }
 ];
 
 const MainNav: React.FC = () => {
