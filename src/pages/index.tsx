@@ -2,21 +2,13 @@ import React from 'react';
 
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
-import HeroBanner from 'components/HeroBanner';
-import Experience from 'components/Experience';
-import Education from 'components/Education';
-import Publications from 'components/Publications';
+import Posts from 'components/Posts';
 
-const ResumePage: React.FC = () => (
+const PostsPage: React.FC = () => (
   <Layout>
-    <SEO title="Resume" />
-    <HeroBanner />
-    <Experience />
-    <hr />
-    <Education />
-    <hr />
-    <Publications />
+    <SEO title="Posts" />
+    <Posts />
   </Layout>
 );
 
-export default ResumePage;
+export default PostsPage;

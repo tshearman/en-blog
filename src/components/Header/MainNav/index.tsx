@@ -9,25 +9,23 @@ interface MainNavItem {
 
 const mainNavItems: MainNavItem[] = [
   {
-    title: 'Résumé',
+    title: 'Posts',
     slug: '/'
   },
   {
-    title: 'Contact',
-    slug: '/contact/'
+    title: 'Archive',
+    slug: '/archive/'
+  },
+  {
+    title: 'Resume',
+    slug: '/resume/'
   }
-  // {
-  //   title: 'Blog',
-  //   slug: '/blog/'
-  // }
 ];
 
 const MainNav: React.FC = () => {
-  const [open, setOpen] = useState(false);
-
   return (
     <>
-      <Styled.MainNav open={open}>
+      <Styled.MainNav>
         {mainNavItems.map((item, index) => (
           <Styled.MainNavItem
             key={`nav-item-${index}`}
@@ -39,11 +37,6 @@ const MainNav: React.FC = () => {
           </Styled.MainNavItem>
         ))}
       </Styled.MainNav>
-      <Styled.ToogleMainNav open={open} onClick={() => setOpen(!open)}>
-        <span />
-        <span />
-        <span />
-      </Styled.ToogleMainNav>
     </>
   );
 };
