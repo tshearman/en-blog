@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <div class="container" role="main">
+    <article class="article" class="blog-post">
+      <div class="postmeta-article">
+        {{ partial "postmeta.html" . }}
+      </div>
+      <br>
+      {{ partial "toc.html" . }}
+    </article>
+    {{ if or (gt .WordCount 400) (.Param "backtotop") }}
+      {{ partial "backtotop.html" . }}
+    {{ end }}
+  </div>
+{{ end }}

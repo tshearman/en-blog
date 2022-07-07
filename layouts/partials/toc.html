@@ -1,0 +1,13 @@
+{{ if and (gt .WordCount 400) (.Param "toc") }}
+    {{- $header := (findRE "<h2.*?>(?:.|\n)*?</h2>" .Content) -}}
+    {{- $firstH := index $header 0 -}}
+
+    {{- if ne $firstH nil -}}
+        {{- $newH := printf `%s%s` .TableOfContents $firstH -}}
+        {{- replace .Content $firstH $newH | safeHTML -}}
+    {{- else -}}
+        {{- .Content -}}
+    {{- end -}}
+{{ else }}
+    {{ .Content }}
+{{ end }}

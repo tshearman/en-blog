@@ -1,0 +1,16 @@
+<span class="meta-post">
+  {{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}
+  {{ if .Params.series }}
+    <br>
+    {{ range .Params.series }}
+      <a href="{{ $.Site.BaseURL }}/series/{{ . | urlize }}/">@{{ . }}</a>&nbsp;
+    {{ end }}
+  {{ end }}
+  {{ if .Params.tags }}
+  <div class="blog-tags">
+    {{ range .Params.tags }}
+      <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">#{{ . }}</a>&nbsp;
+    {{ end }}
+  </div>
+{{ end }}  
+</span>

@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+{{ $theTax := .Data.Plural }}
+{{ $thePrefix := "^" }}
+{{ if eq (string $theTax) "tags" }}
+{{ $thePrefix = (string "#") }}
+{{ else if eq (string $theTax) "series" }}
+{{ $thePrefix = (string "@") }}
+{{ end }}
+
+<div class="container" role="main">
+  <div class="terms">
+    <div>
+      <span class="term selected">all</span>
+    </div>
+    <div>
+      {{ range .Data.Terms.Alphabetical }}
+      <span class="term unselected">{{ .Page.Title }}</span>
+      {{ end }}
+    </div>
+  </div>
+
+  <div>
+    <ol class="all-posts">
+      {{range .Site.RegularPages}}
+      {{if (index .Params $theTax)}}
+      <li>{{.PublishDate.Format "Jan 2, 2006"}} <a href="{{.Permalink}}">{{.Title}}</a>
+        {{range (index .Params $theTax)}}
+        {{$thePrefix}}{{.}}
+        {{end}}
+      </li>
+      {{end}}
+      {{end}}
+    </ol>
+  </div>
+
+</div>
+
+{{ end }}
