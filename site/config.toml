@@ -21,7 +21,9 @@ footnoteReturnLinkContents = "^"
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = "tango"
+    style = "friendly"
+    tabWidth = 2
+    lineNos = true
 
 [Params]
   darkmode = false

@@ -31,13 +31,15 @@ header nav:not(:empty) {
 
 
 a,
-a:visited {
+a:visited,
+.term {
   color: #8B0000;
   text-decoration-color: black;
   text-decoration-thickness: 1px;
 }
 
-a:focus {
+a:focus,
+.term:focus {
   outline: 0;
 }
 
@@ -55,8 +57,7 @@ nav li {
   display: inline;
 }
 
-nav a,
-.term a {
+nav a {
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
@@ -68,8 +69,20 @@ nav a,
 nav a:hover,
 nav a:focus,
 nav a:active {
-  border-bottom: 1px solid black;
-  outline: 0;
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+.term {
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
+}
+
+.term[data-selected = "false"]:hover,
+.term[data-selected = "false"]:focus,
+.term[data-selected = "false"]:active {
+  text-decoration: underline;
 }
 
 .postmeta-article {
@@ -98,41 +111,73 @@ footer {
 
 .terms {
   text-align: center;
-  color: #8B0000;
 }
 
-.term.selected::before {
+.term[data-selected="true"]::before,
+.term[data-selected="true"]::after {
+  opacity: 1.0;
+}
+
+.term[data-selected="false"]::before,
+.term[data-selected="false"]::after {
+  opacity: 0.0;
+}
+
+.term::before,
+.term::after {
+  color: black;
+}
+
+.term::before {
   content: "[ ";
-  color: black;
 }
 
-.term.selected::after {
+.term::after {
   content: " ]";
-  color: black;
-}
-
-.term.unselected {
-  border-bottom: 1px solid transparent;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-
-.term.unselected:hover {
-  border-bottom: 1px solid black;
 }
 
 span.term {
   display: inline-block
 }
 
-.term.unselected::before,
-.term.unselected::after {
-  opacity: 0.0;
-}
-
-.term.unselected:hover::before,
-.term.unselected:hover::after {
-  opacity: 1.0;
-}
-
 .superscript { position: relative; top: -1.2em; font-size: 25%; }
+
+
+.entry {
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-template-areas: "chapter page";
+  align-items: end;
+  gap: 0 .25rem; /* customize the gap to your needs */
+}
+
+.chapter {
+  grid-area: chapter;
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter::after {
+  position: absolute;
+  padding-left: .25ch; /* customise the padding to your needs */
+  /* adjust the amount of dots to your needs */
+  content: "................................................................................................................................................................................................................................................................................................................................................................................................";
+  text-align: right; /* optional, can be removed */
+}
+
+.page {
+  grid-area: page;
+}
+
+.post {
+  margin-bottom: 10px;
+}
+
+.post .terms-list {
+  opacity: 0.5;
+  font-size: 75%;
+}
+
+.post[data-display="false"] {
+  display: none;
+}
