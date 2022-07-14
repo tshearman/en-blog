@@ -8,7 +8,16 @@
 {{ $thePrefix = (string "@") }}
 {{ end }}
 
-{{$filtered :=  (where .Data.Terms.Alphabetical "Name" "!=" "index")}}
+
+{{ $allEngTerms := slice }}
+{{ $filtered :=  (where .Data.Terms.Alphabetical "Name" "!=" "index") }}
+{{ range $filtered }}
+  {{ range .WeightedPages }}
+  {{ $ss := index (.Page.Params)  $theTax }}
+    {{ $allEngTerms = $allEngTerms | append $ss }}
+  {{end}}
+{{end}}
+{{ $allEngTerms = uniq $allEngTerms }}
 
 <div class="container" role="main">
   <div class="terms">
@@ -19,11 +28,12 @@
             id="term_all">all</span>
     </div>
     <div>
-      {{range $filtered}}
-      <span onclick="handleClick('{{.Name}}')"
-            class="term"
-            data-selected="false"
-            id="term_{{.Name}}">{{ .Name }}</span>
+      {{range $allEngTerms}}
+        {{ $term := . | urlize  }}
+        <span onclick="handleClick('{{$term}}')"
+              class="term"
+              data-selected="false"
+              id="term_{{$term}}">{{ . }}</span>
       {{ end }}
     </div>
   </div>
@@ -31,62 +41,77 @@
   <p id="demo"></p>
 
   <div class="post-toc">
-    <h2>Posts</h2>
-    {{range .Site.RegularPages}}
-      {{if (index .Params $theTax)}}
-        {{$tags := delimit (apply (index .Params $theTax) "urlize" ".") ","}}
+      <h2>Posts</h2>
+      {{range .Site.RegularPages}}
+        {{$engTerms := slice}}
+        {{$terms := slice}}
+        {{if (index .Params $theTax)}}
+          {{$engTerms = (index .Params $theTax)}}
+          {{$terms = delimit (apply $engTerms "urlize" ".") ","}}
+        {{else}}
+          {{$engTerms = slice}}
+          {{$terms = "none"}}
+        {{end}}
         <div class="post"
              data-display="true"
-             data-tags='{{$tags}}'>
+             data-tags='{{$terms}}'>
           <div class="entry">
-            <div class="chapter"><a href="{{.Permalink}}">{{.Title}}</a></div>
+              <div class="chapter">
+                  <a href="{{.Permalink}}">{{.Title}}</a>
+                  <span class="terms-list">
+                      {{if $engTerms}}
+                        ({{delimit $engTerms ", "}})
+                      {{end}}
+                  </span>
+              </div>
             <div class="page">
               {{.PublishDate.Format "2006 Jan 2"}}
             </div>
           </div>
-          <div class="terms-list">({{delimit (index .Params $theTax) ", "}})</div>
         </div>
-      {{end}}
     {{end}}
   </div>
 </div>
 
 <script>
-
- {{$filtered :=  (where .Data.Terms.Alphabetical "Name" "!=" "index")}}
+ 
  const all = [{{range $filtered}}{{.Name}},{{end}}];
- var selected = [...all];
+ var allFlag = true
+ var selected = [];
 
  function updateSelectedList(value) {
    if (value == "all") {
-     selected = selected.length == all.length ? [] : all;
-   } else if (selected.length == all.length) {
-     selected = [value];
+       allFlag = !allFlag
+       selected = []
    } else if (selected.includes(value)) {
-     selected = selected.length == 1 ? all : selected.filter(s => s != value);
+       allFlag = false
+       selected = selected.filter(s => s != value);
    } else {
+     allFlag = false
      selected = [value, ...selected];
    }
+     console.log(all)
+     console.log(allFlag)
+     console.log(selected)
  };
 
  function updatePostsDisplayed() {
    posts = document.getElementsByClassName("post");
    for (post of posts) {
-     tags = post.getAttribute("data-tags").split(",").filter(t => t != "")
-     toDisplay = tags.some(t => selected.includes(t)) ? "true" : "false"
-     post.setAttribute("data-display", toDisplay)
+       tags = post.getAttribute("data-tags").split(",").filter(t => t != "")
+       predicate = allFlag || tags.some(t => selected.includes(t))
+       toDisplay = predicate ? "true" : "false"
+       post.setAttribute("data-display", toDisplay)
    };
  };
 
  function updateHighlightedTags() {
-   allSelected = selected.length == all.length
-   allSelectedStr = allSelected ? "true" : "false"
-   document.getElementById("term_all").setAttribute("data-selected", allSelectedStr)
-   for (t of all) {
-     v = (!allSelected) && selected.includes(t) ? "true" : "false"
-     id_ = `term_${t}`
-     document.getElementById(id_)
-             .setAttribute("data-selected", v)
+     document.getElementById("term_all").setAttribute("data-selected", allFlag.toString())
+     for (t of all) {
+         id_ = `term_${t}`
+         v = selected.includes(t).toString()
+         document.getElementById(id_)
+               .setAttribute("data-selected", v)
    };
  }
 

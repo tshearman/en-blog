@@ -149,6 +149,24 @@ article > * + * {
 }
 
 /* Styles for inline code or code snippets */
+.highlight {
+  overflow: scroll;
+  border: 0.5px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  background: #f0f0f0;
+}
+
+@media (min-width: 1050px) {
+  .highlight:hover {
+    overflow: visible;
+  }
+}
+
+.highlight table {
+  background: #f0f0f0;
+};
+
 code,
 pre,
 kbd {
@@ -157,11 +175,12 @@ kbd {
   font-size: 85%;
 }
 pre {
-  padding: 1rem 1.4rem;
+  padding: 1rem 1rem;
   max-width: 100%;
-  overflow: auto;
   border-radius: 4px;
   background: hsl(210, 28%, 93%);
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 pre code {
   font-size: 95%;

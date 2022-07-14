@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Beth Ellen';
+  font-style: regular;
+  font-display: swap;
+  src: url('./fonts/BethEllen-Regular.ttf') format('truetype');
+};
+
+span.gradient {
+  background: -webkit-linear-gradient(180deg, #FFCC45, darkred);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+};
+
 .pager {
   list-style: none;
   text-align: center;
@@ -98,7 +111,7 @@ nav a:active {
 }
 
 html {
-  font-size: 110%;
+  font-size: 105%;
 }
 
 footer {
@@ -181,3 +194,9 @@ span.term {
 .post[data-display="false"] {
   display: none;
 }
+
+.signature {
+  font-family: 'Beth Ellen';
+  font-size: 150%;
+  text-align: center;
+};

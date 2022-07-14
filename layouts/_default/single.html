@@ -7,6 +7,7 @@
       <br>
       {{ partial "toc.html" . }}
     </article>
+    {{ partial "signature.html" . }}
     {{ if or (gt .WordCount 400) (.Param "backtotop") }}
       {{ partial "backtotop.html" . }}
     {{ end }}

@@ -10,7 +10,7 @@
     {{ end }}
 
     <ul class="nav-links">
-      <li><a href="/" name="home">home</a></li>
+      <li><a href="/" name="articles">articles</a></li>
       {{ range .Site.Params.nav }}
         | {{ if .icon }}
           <li><a href="{{ .url | relLangURL }}" name="{{ .name }}"><i class="{{ .icon }}"></i></a></li>

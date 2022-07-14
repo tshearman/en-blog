@@ -3,13 +3,13 @@
   {{ if .Params.series }}
     <br>
     {{ range .Params.series }}
-      <a href="{{ $.Site.BaseURL }}/series/{{ . | urlize }}/">@{{ . }}</a>&nbsp;
+    <a href="{{ $.Site.BaseURL }}/series/{{ . | urlize }}/"><span style="font-size: 75%">@</span>{{ . }}</a>&nbsp;
     {{ end }}
   {{ end }}
   {{ if .Params.tags }}
   <div class="blog-tags">
     {{ range .Params.tags }}
-      <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">#{{ . }}</a>&nbsp;
+    <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/"><span style="font-size: 75%">#</span>{{ . }}</a>&nbsp;
     {{ end }}
   </div>
 {{ end }}  

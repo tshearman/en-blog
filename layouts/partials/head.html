@@ -3,17 +3,20 @@
   <title>{{ .Title }} - {{ .Site.Title }}</title>
 {{ else }}
   <title>{{ .Site.Title }}</title>
-{{ end }}
-{{ with .Site.Params.description }}
+  {{ end }}
+  {{ with .Site.Params.description }}
   <meta name="description" content="{{ . }}" />
-{{ end }}
-{{- with .Site.Author.Name }}
+  {{ end }}
+  {{- with .Site.Author.Name }}
   <meta name="author" content="{{ . }}"/>
-{{- end }}
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/latex.css" />
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+  {{- end }}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}icons/ts_16.ico" sizes="16x16">
+  <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}icons/ts_32.ico" sizes="32x32">
+  <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}icons/ts_192.ico" sizes="192x192">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/latex.css" />
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
 {{ if .Site.Params.darkmode }}
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/darkmode.css" />
 {{- end }}
