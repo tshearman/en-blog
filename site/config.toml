@@ -8,8 +8,9 @@ footnoteReturnLinkContents = "^"
 
 [author]
   name = "Toby Shearman"
-  abstract = "As an applied mathematician, I thrive on tackling challenging problems and communicating their solutions, relying on numerical computation and visualization to inspire rigorous mathematics. With over five years of experience as a data scientist, I leverage my expertise to translate strategic business motivations into mathematical formulations and extract actionable insights using visualization and modern computational frameworks."
-  expertise = "Optimization, Calculus of Variations, Materials and Multiple-scale Analysis, Uncertainty Quantification, Computational Geometry, Causal Inference and Machine Learning, Data Visualization, Distributed Computing, Petabyte-scale Data Analytics."
+  subtitle = "Applied Mathematician & Data Scientist"
+  # abstract = "As an applied mathematician, I thrive on tackling challenging problems and communicating their solutions, relying on numerical computation and visualization to inspire rigorous mathematics. With over five years of experience as a data scientist, I leverage my expertise to translate strategic business motivations into mathematical formulations and extract actionable insights using visualization and modern computational frameworks."
+  # expertise = "Optimization, Calculus of Variations, Materials and Multiple-scale Analysis, Uncertainty Quantification, Computational Geometry, Causal Inference and Machine Learning, Data Visualization, Distributed Computing, Petabyte-scale Data Analytics."
 
 [taxonomies]
   category = "categories"
@@ -28,9 +29,9 @@ footnoteReturnLinkContents = "^"
 [Params]
   darkmode = false
 
-[[Params.nav]]
-name = "posts"
-url = "posts"
+# [[Params.nav]]
+# name = "posts"
+# url = "posts"
 
 [[Params.nav]]
 name = "series"
