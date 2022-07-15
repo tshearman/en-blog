@@ -1,0 +1,86 @@
+{{ define "main" }}
+
+{{ $theTax := .Data.Plural }}
+{{ $thePrefix := "^" }}
+{{ if eq (string $theTax) "tags" }}
+{{ $thePrefix = (string "#") }}
+{{ else if eq (string $theTax) "series" }}
+{{ $thePrefix = (string "@") }}
+{{ end }}
+
+
+{{ $allEngTerms := slice }}
+{{ $filtered :=  uniq (where .Data.Terms.Alphabetical "Name" "!=" "index") }}
+  {{ range $filtered }}
+    {{ range .WeightedPages }}
+    {{ $ss := index (.Page.Params)  $theTax }}
+    {{ $allEngTerms = $allEngTerms | append $ss }}
+  {{end}}
+{{end}}
+{{ $allEngTerms = uniq $allEngTerms }}
+{{ $allUrlTerms := apply $allEngTerms "urlize" "." }}
+
+<div class="container" role="main">
+  <div class="terms">
+    <div>
+      <span onclick="handleClick('all', allUrlTermsJs)"
+            class="term"
+            data-selected="true"
+            id="term_all">all</span>
+    </div>
+    <div>
+      {{range $allEngTerms}}
+        {{ $term := . | urlize  }}
+        <span onclick="handleClick('{{$term}}', allUrlTermsJs)"
+              class="term"
+              data-selected="false"
+              id="term_{{$term}}">{{ . }}</span>
+      {{ end }}
+    </div>
+  </div>
+
+  <p id="demo"></p>
+
+  <div class="post-toc">
+      <h2>Posts</h2>
+      {{range .Site.RegularPages}}
+        {{$engTerms := slice}}
+        {{$terms := slice}}
+        {{if (index .Params $theTax)}}
+          {{$engTerms = (index .Params $theTax)}}
+          {{$terms = delimit (apply $engTerms "urlize" ".") ","}}
+        {{else}}
+          {{$engTerms = slice}}
+          {{$terms = "none"}}
+        {{end}}
+        <div class="post"
+             data-display="true"
+             data-tags='{{$terms}}'>
+          <div class="entry-wrapper">
+          <div class="entry">
+              <div class="chapter">
+                  <a href="{{.Permalink}}">{{.Title}}</a>
+                  <span class="terms-list">
+                      {{if $engTerms}}
+                        ({{delimit $engTerms ", "}})
+                      {{end}}
+                  </span>
+              </div>
+              <div class="page">
+                  {{.PublishDate.Format "2006 Jan 2"}}
+              </div>
+          </div>
+          <div class="term-summary">
+              {{if .Truncated}}{{.Summary}}{{end}}
+          </div>
+          </div>
+        </div>
+        {{end}}
+  </div>
+</div>
+
+<script type="text/javascript" src="{{ .Site.BaseURL }}js/tags.js"></script>
+<script>
+ const allUrlTermsJs = '{{delimit $allUrlTerms ","}}'.split(",");
+</script>
+{{ end }}

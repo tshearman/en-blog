@@ -1,0 +1,42 @@
+baseURL = "https://toby.shearman.io/"
+title = "Estimating Nature"
+paginate = 5
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+[author]
+  name = "Toby Shearman"
+  subtitle = "Applied Mathematician & Data Scientist"
+  # abstract = "As an applied mathematician, I thrive on tackling challenging problems and communicating their solutions, relying on numerical computation and visualization to inspire rigorous mathematics. With over five years of experience as a data scientist, I leverage my expertise to translate strategic business motivations into mathematical formulations and extract actionable insights using visualization and modern computational frameworks."
+  # expertise = "Optimization, Calculus of Variations, Materials and Multiple-scale Analysis, Uncertainty Quantification, Computational Geometry, Causal Inference and Machine Learning, Data Visualization, Distributed Computing, Petabyte-scale Data Analytics."
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "friendly"
+    tabWidth = 2
+    lineNos = true
+
+[Params]
+  darkmode = false
+
+# [[Params.nav]]
+# name = "posts"
+# url = "posts"
+
+[[Params.nav]]
+name = "series"
+url = "series"
+
+[[Params.nav]]
+name = "tags"
+url = "tags"  

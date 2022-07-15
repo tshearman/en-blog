@@ -1,0 +1,30 @@
+<meta charset="utf-8" />
+{{ if .Title }}
+  <title>{{ .Title }} - {{ .Site.Title }}</title>
+{{ else }}
+  <title>{{ .Site.Title }}</title>
+  {{ end }}
+  {{ with .Site.Params.description }}
+  <meta name="description" content="{{ . }}" />
+  {{ end }}
+  {{- with .Site.Author.Name }}
+  <meta name="author" content="{{ . }}"/>
+  {{- end }}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}icons/ts_16.ico" sizes="16x16">
+  <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}icons/ts_32.ico" sizes="32x32">
+  <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}icons/ts_192.ico" sizes="192x192">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/latex.css" />
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+{{ if .Site.Params.darkmode }}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/darkmode.css" />
+{{- end }}
+
+<script defer src="https://kit.fontawesome.com/3ae469c017.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+{{ hugo.Generator -}}

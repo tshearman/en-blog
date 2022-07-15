@@ -1,0 +1,210 @@
+@font-face {
+  font-family: 'Beth Ellen';
+  font-style: regular;
+  font-display: swap;
+  src: url('./fonts/BethEllen-Regular.ttf') format('truetype');
+};
+
+span.gradient {
+  background: -webkit-linear-gradient(180deg, #FFCC45, darkred);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+};
+
+.pager {
+  list-style: none;
+  text-align: center;
+  margin: 20px 0 0;
+  padding-left: 0;
+}
+
+.pager ul {
+  display: block;
+}
+
+.pager .previous>a {
+  margin: 20px 0 0;
+  float: left;
+  display: block;
+}
+
+.pager .next>a {
+  margin: 20px 0 0;
+  float: right;
+  display: block;
+}
+
+header nav:not(:empty) {
+  margin-top: 1em;
+  max-width: 100%;
+  text-align: center;
+  display: block;
+  padding: 0;
+}
+
+
+a,
+a:visited,
+.term {
+  color: #8B0000;
+  text-decoration-color: black;
+  text-decoration-thickness: 1px;
+}
+
+a:focus,
+.term:focus {
+  outline: 0;
+}
+
+.sidenote-number ~ .sidenote::before,
+.sidenote-number::after {
+  color: #8B0000;
+}
+
+nav li:before {
+  content: "";
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+}
+
+nav a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links {
+  padding: 0;
+}
+
+nav a:hover,
+nav a:focus,
+nav a:active {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+.term {
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
+}
+
+.term[data-selected = "false"]:hover,
+.term[data-selected = "false"]:focus,
+.term[data-selected = "false"]:active {
+  text-decoration: underline;
+}
+
+.postmeta-article {
+  text-align: center;
+}
+
+.backtotop {
+  text-align: right;
+}
+
+.intro-header {
+  margin-top: 50px;
+}
+
+html {
+  font-size: 105%;
+}
+
+footer {
+  margin-bottom: 4rem;
+}
+
+.footnote-ref {
+  padding-left: 0.15rem;
+}
+
+.terms {
+  text-align: center;
+}
+
+.term[data-selected="true"]::before,
+.term[data-selected="true"]::after {
+  opacity: 1.0;
+}
+
+.term[data-selected="false"]::before,
+.term[data-selected="false"]::after {
+  opacity: 0.0;
+}
+
+.term::before,
+.term::after {
+  color: black;
+}
+
+.term::before {
+  content: "[ ";
+}
+
+.term::after {
+  content: " ]";
+}
+
+span.term {
+  display: inline-block
+}
+
+.term-summary {
+  display: none;
+}
+
+/* .entry-wrapper:hover > .term-summary { */
+/*   display: block; */
+/* }; */
+
+.superscript { position: relative; top: -1.2em; font-size: 25%; }
+
+
+.entry {
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-template-areas: "chapter page";
+  align-items: end;
+  gap: 0 .25rem; /* customize the gap to your needs */
+}
+
+.chapter {
+  grid-area: chapter;
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter::after {
+  position: absolute;
+  padding-left: .25ch; /* customise the padding to your needs */
+  /* adjust the amount of dots to your needs */
+  content: "................................................................................................................................................................................................................................................................................................................................................................................................";
+  text-align: right; /* optional, can be removed */
+}
+
+.page {
+  grid-area: page;
+}
+
+.post {
+  margin-bottom: 10px;
+}
+
+.post .terms-list {
+  opacity: 0.5;
+  font-size: 75%;
+}
+
+.post[data-display="false"] {
+  display: none;
+}
+
+.signature {
+  font-family: 'Beth Ellen';
+  font-size: 150%;
+  text-align: center;
+};
