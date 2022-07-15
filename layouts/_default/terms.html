@@ -10,19 +10,20 @@
 
 
 {{ $allEngTerms := slice }}
-{{ $filtered :=  (where .Data.Terms.Alphabetical "Name" "!=" "index") }}
-{{ range $filtered }}
-  {{ range .WeightedPages }}
-  {{ $ss := index (.Page.Params)  $theTax }}
+{{ $filtered :=  uniq (where .Data.Terms.Alphabetical "Name" "!=" "index") }}
+  {{ range $filtered }}
+    {{ range .WeightedPages }}
+    {{ $ss := index (.Page.Params)  $theTax }}
     {{ $allEngTerms = $allEngTerms | append $ss }}
   {{end}}
 {{end}}
 {{ $allEngTerms = uniq $allEngTerms }}
+{{ $allUrlTerms := apply $allEngTerms "urlize" "." }}
 
 <div class="container" role="main">
   <div class="terms">
     <div>
-      <span onclick="handleClick('all')"
+      <span onclick="handleClick('all', allUrlTermsJs)"
             class="term"
             data-selected="true"
             id="term_all">all</span>
@@ -30,7 +31,7 @@
     <div>
       {{range $allEngTerms}}
         {{ $term := . | urlize  }}
-        <span onclick="handleClick('{{$term}}')"
+        <span onclick="handleClick('{{$term}}', allUrlTermsJs)"
               class="term"
               data-selected="false"
               id="term_{{$term}}">{{ . }}</span>
@@ -55,6 +56,7 @@
         <div class="post"
              data-display="true"
              data-tags='{{$terms}}'>
+          <div class="entry-wrapper">
           <div class="entry">
               <div class="chapter">
                   <a href="{{.Permalink}}">{{.Title}}</a>
@@ -64,62 +66,21 @@
                       {{end}}
                   </span>
               </div>
-            <div class="page">
-              {{.PublishDate.Format "2006 Jan 2"}}
-            </div>
+              <div class="page">
+                  {{.PublishDate.Format "2006 Jan 2"}}
+              </div>
+          </div>
+          <div class="term-summary">
+              {{if .Truncated}}{{.Summary}}{{end}}
+          </div>
           </div>
         </div>
-    {{end}}
+        {{end}}
   </div>
 </div>
 
+<script type="text/javascript" src="{{ .Site.BaseURL }}js/tags.js"></script>
 <script>
- 
- const all = [{{range $filtered}}{{.Name}},{{end}}];
- var allFlag = true
- var selected = [];
-
- function updateSelectedList(value) {
-   if (value == "all") {
-       allFlag = !allFlag
-       selected = []
-   } else if (selected.includes(value)) {
-       allFlag = false
-       selected = selected.filter(s => s != value);
-   } else {
-     allFlag = false
-     selected = [value, ...selected];
-   }
-     console.log(all)
-     console.log(allFlag)
-     console.log(selected)
- };
-
- function updatePostsDisplayed() {
-   posts = document.getElementsByClassName("post");
-   for (post of posts) {
-       tags = post.getAttribute("data-tags").split(",").filter(t => t != "")
-       predicate = allFlag || tags.some(t => selected.includes(t))
-       toDisplay = predicate ? "true" : "false"
-       post.setAttribute("data-display", toDisplay)
-   };
- };
-
- function updateHighlightedTags() {
-     document.getElementById("term_all").setAttribute("data-selected", allFlag.toString())
-     for (t of all) {
-         id_ = `term_${t}`
-         v = selected.includes(t).toString()
-         document.getElementById(id_)
-               .setAttribute("data-selected", v)
-   };
- }
-
- function handleClick(value) {
-   updateSelectedList(value)
-   updateHighlightedTags()
-   updatePostsDisplayed()
- };
+ const allUrlTermsJs = '{{delimit $allUrlTerms ","}}'.split(",");
 </script>
-
 {{ end }}
